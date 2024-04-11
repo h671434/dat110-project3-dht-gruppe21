@@ -42,10 +42,13 @@ public class Util {
 		// The interval (6, 2) using the notation above means; pred = 6 and node = 2
 		// if id = 4, then (6 < 4 <= 2) = false  
 		// if id = 9, then (6 < 9 <= 2) = true
+	
+		BigInteger addressSize = Hash.addressSize();
+		BigInteger a = id.subtract(lower).remainder(addressSize);
+		BigInteger b = upper.subtract(lower).remainder(addressSize);
 		
 		// Task: given an identifier, id: check whether pred < id <= node
-		
-		return false;
+		return a.compareTo(b) <= 0;
 
 	}
 	
